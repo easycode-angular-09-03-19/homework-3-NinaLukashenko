@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 offset-lg-3">
+      <div class="card">
+        <div class="card-header">
+          <h1>{{ name }}</h1>
+        </div>
+        <div class="card-body" style="text-align:left">
+          <h5>general info:</h5>
+          <ul>
+            <li [textContent]="'mileague: ' + mileage"></li>
+            <li [textContent]="'tank: ' + tank"></li>
+            <li [textContent]="'fuel: ' + fuel"></li>
+          </ul>
+          <br />
+          <h5>specifications:</h5>
+          <ul>
+            <li *ngFor="let spec of specifications">
+              {{ spec }}
+            </li>
+          </ul>
+        </div>
+        <div class="card-footer">
+          <button
+            type="button"
+            class="btn btn-success"
+            *ngIf="fuel > 0"
+            (click)="onClickDriveHandler()"
+          >
+            Drive!
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger"
+            *ngIf="fuel < 1"
+            (click)="onClickRefuelHandler()"
+          >
+            Refuel!
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
